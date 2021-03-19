@@ -23,14 +23,19 @@ ASGEGame::~ASGEGame()
 
 bool ASGEGame::init()
 {
+  /// Register Input Callbacks
   key_callback_id =
     inputs->addCallbackFnc(ASGE::E_KEY, &ASGEGame::keyHandler, this);
-  mouse_callback_id =
+  click_callback_id =
     inputs->addCallbackFnc(ASGE::E_MOUSE_CLICK, &ASGEGame::clickHandler, this);
+  mouse_callback_id =
+    inputs->addCallbackFnc(ASGE::E_MOUSE_MOVE, &ASGEGame::mouseHandler, this);
+  scroll_callback_id =
+    inputs->addCallbackFnc(ASGE::E_MOUSE_SCROLL, &ASGEGame::scrollHandler, this);
 
   return true;
 }
-
+/// Inputs
 void ASGEGame::keyHandler(const ASGE::SharedEventData& data)
 {
   const auto* key = dynamic_cast<const ASGE::KeyEvent*>(data.get());
@@ -40,10 +45,17 @@ void ASGEGame::keyHandler(const ASGE::SharedEventData& data)
     signalExit();
   }
 }
-
 void ASGEGame::clickHandler(const ASGE::SharedEventData& /*data*/)
 {
   //const auto* click = dynamic_cast<const ASGE::ClickEvent*>(data.get());
+}
+void ASGEGame::mouseHandler(const ASGE::SharedEventData& /*data*/)
+{
+  //const auto* mouse = dynamic_cast<const ASGE::MoveEvent*>(data.get());
+}
+void ASGEGame::scrollHandler(const ASGE::SharedEventData& /*data*/)
+{
+  //const auto* scroll = dynamic_cast<const ASGE::ScrollEvent*>(data.get());
 }
 
 void ASGEGame::update(const ASGE::GameTime& game_time)
@@ -63,3 +75,4 @@ void ASGEGame::render()
   renderer->setFont(0);
   renderer->setProjectionMatrix(camera.getView());
 }
+
