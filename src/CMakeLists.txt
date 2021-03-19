@@ -16,7 +16,7 @@ add_executable(
         game/game.cpp)
 
 ## configure the target ##
-list(APPEND LIBS ${CMAKE_DL_LIBS})
+list(APPEND LIBS ${CMAKE_DL_LIBS} "soloud")
 configure_target(${GAME} ${CMAKE_CURRENT_SOURCE_DIR} "${HEADER_LIST}" "${LIBS}")
 add_asge_dependency(${GAME})
 

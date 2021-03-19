@@ -5,7 +5,7 @@ cmake_minimum_required(VERSION 3.12...3.16)
 #------------------------------------------------------------------------------
 set(ENABLE_RAPID_YAML OFF CACHE BOOL "Adds YAML to the Project" FORCE)
 set(ENABLE_ENET       OFF CACHE BOOL "Adds Network to the Project" FORCE)
-set(ENABLE_SOUND      OFF CACHE BOOL "Adds SoLoud Audio" FORCE)
+set(ENABLE_SOUND      ON CACHE BOOL "Adds SoLoud Audio" FORCE)
 
 #------------------------------------------------------------------------------
 # Project settings
