@@ -5,34 +5,37 @@
 #ifndef HELLOASGE_ANIMATEDSPRITE_H
 #define HELLOASGE_ANIMATEDSPRITE_H
 
-#include <game/GameObjects/GameObject.h>
+#include <game/GameObjects/Core/SpriteObject.h>
 #include <vector>
-class AnimatedSprite : public GameObject
+class AnimatedSprite : public SpriteObject
 {
  public:
-  AnimatedSprite(ASGE::Renderer* renderer, const std::vector<std::string>& sprite_paths, ASGE::Point2D position = ASGE::Point2D(), float _speed = 1);
+  AnimatedSprite(ASGE::Renderer* renderer, const std::string& folder_path, size_t num_frames, ASGE::Point2D position = ASGE::Point2D(), float playback_speed = 1);
 
   void update(float dt) override;
   void render(ASGE::Renderer* renderer) override;
 
-  [[nodiscard]] bool visibility() const;
-  void visibility(bool _visibility);
+  [[nodiscard]] bool visibility() const override;
+  void visibility(bool _visibility) override;
 
-  [[nodiscard]] ASGE::Point2D position();
-  void position(ASGE::Point2D _position);
-  void translate(ASGE::Point2D _translation);
+  [[nodiscard]] ASGE::Point2D position() override;
+  void position(ASGE::Point2D _position) override;
+  void translate(ASGE::Point2D _translation) override;
 
-  [[nodiscard]] float rotation();
-  void rotation(float _radians);
-  void rotate(float _radians);
+  [[nodiscard]] ASGE::Point2D dimensions() override;
+  void dimensions(ASGE::Point2D _dimensions) override;
 
-  [[nodiscard]] ASGE::Colour colour();
-  void colour(ASGE::Colour _colour);
+  [[nodiscard]] float rotation() override;
+  void rotation(float _radians) override;
+  void rotate(float _radians) override;
 
-  [[nodiscard]] float opacity();
-  void opacity(float _opacity);
+  [[nodiscard]] ASGE::Colour colour() override;
+  void colour(ASGE::Colour _colour) override;
 
-  [[nodiscard]] ASGE::Point2D centre();
+  [[nodiscard]] float opacity() override;
+  void opacity(float _opacity) override;
+
+  [[nodiscard]] ASGE::Point2D centre() override;
 
  private:
   std::vector<std::unique_ptr<ASGE::Sprite>> sprites;

@@ -10,10 +10,10 @@
 /// Forward Declarations
 namespace ASGE
 {
-  class KeyEvent;
-  class ClickEvent;
-  class MoveEvent;
-  class ScrollEvent;
+  struct KeyEvent;
+  struct ClickEvent;
+  struct MoveEvent;
+  struct ScrollEvent;
 }
 
 class GameObject

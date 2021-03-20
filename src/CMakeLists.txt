@@ -13,7 +13,7 @@ add_executable(
         ${GAME} ${HEADER_LIST}
         ## source code files for app here ##
         game/main.cpp
-        game/game.cpp game/GameObjects/Core/SpriteObject.cpp game/GameObjects/Core/SpriteObject.h game/GameObjects/GameObject.h game/GameObjects/Core/TextObject.cpp game/GameObjects/Core/TextObject.h game/GameObjects/Core/AnimatedSprite.cpp game/GameObjects/Core/AnimatedSprite.h)
+        game/game.cpp game/GameObjects/Core/SpriteObject.cpp game/GameObjects/Core/SpriteObject.h game/GameObjects/GameObject.h game/GameObjects/Core/TextObject.cpp game/GameObjects/Core/TextObject.h game/GameObjects/Core/AnimatedSprite.cpp game/GameObjects/Core/AnimatedSprite.h game/GameObjects/Scenes/Scene.cpp game/GameObjects/Scenes/Scene.h game/GameObjects/Tilemap/Tile.cpp game/GameObjects/Tilemap/Tile.h game/GameObjects/Tilemap/TileMap.cpp game/GameObjects/Tilemap/TileMap.h game/GameObjects/Scenes/LevelTest.cpp game/GameObjects/Scenes/LevelTest.h game/GameObjects/Player/Player.cpp game/GameObjects/Player/Player.h)
 
 ## configure the target ##
 list(APPEND LIBS ${CMAKE_DL_LIBS} "soloud")

@@ -6,27 +6,27 @@
 #include <Engine/Sprite.h>
 #include <cmath>
 AnimatedSprite::AnimatedSprite(
-  ASGE::Renderer* renderer, const std::vector<std::string>& sprite_paths,
-  ASGE::Point2D position, float _speed)
+  ASGE::Renderer* renderer, const std::string& folder_path, size_t num_frames,
+  ASGE::Point2D position, float playback_speed) : SpriteObject(renderer,folder_path + "/1.png")
 {
-  for (auto& file_path : sprite_paths)
+  for (size_t i = 1; i <= num_frames; i++)
   {
     auto& sprite = sprites.emplace_back(renderer->createUniqueSprite());
-    sprite->loadTexture(file_path);
+    sprite->loadTexture(folder_path + "/" + std::to_string(i) + ".png");
     sprite->xPos(position.x);
     sprite->yPos(position.y);
   }
-  speed = _speed;
+  speed = playback_speed;
 }
 void AnimatedSprite::update(float dt)
 {
-  timer = fmod(timer + dt,sprites.size() * (1/speed));
+  timer = fmod(timer + dt,sprites.size() / speed);
 }
 void AnimatedSprite::render(ASGE::Renderer* renderer)
 {
   if (visible)
   {
-    renderer->renderSprite(*sprites[floor(timer * (1/speed))]);
+    renderer->renderSprite(*sprites[floor(timer * speed)]);
   }
 }
 bool AnimatedSprite::visibility() const
@@ -55,6 +55,18 @@ void AnimatedSprite::translate(ASGE::Point2D _translation)
   {
     sprite->xPos(sprite->xPos() + _translation.x);
     sprite->yPos(sprite->yPos() + _translation.y);
+  }
+}
+ASGE::Point2D AnimatedSprite::dimensions()
+{
+  return ASGE::Point2D(sprites.front()->width(),sprites.front()->height());
+}
+void AnimatedSprite::dimensions(ASGE::Point2D _dimensions)
+{
+  for (auto& sprite : sprites)
+  {
+    sprite->width(_dimensions.x);
+    sprite->height(_dimensions.y);
   }
 }
 float AnimatedSprite::rotation()

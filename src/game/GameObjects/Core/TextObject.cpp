@@ -9,6 +9,7 @@ TextObject::TextObject(
 {
   text.setString(contents);
   text.setFont(renderer->getFont(font_index));
+  text.setPosition(position);
   text.setColour(colour);
   text.setScale(scale);
   text.setZOrder(z_order);

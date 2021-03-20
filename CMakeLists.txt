@@ -10,7 +10,7 @@ set(ENABLE_SOUND      ON CACHE BOOL "Adds SoLoud Audio" FORCE)
 #------------------------------------------------------------------------------
 # Project settings
 #------------------------------------------------------------------------------
-project(HelloASGE
+project(ASGEGround
         VERSION 1.0
         DESCRIPTION "A sample hello world ASGE application"
         LANGUAGES CXX)

@@ -3,7 +3,6 @@
 //
 
 #include "SpriteObject.h"
-#include <Engine/Sprite.h>
 #include <cmath>
 
 SpriteObject::SpriteObject(
@@ -11,6 +10,8 @@ SpriteObject::SpriteObject(
   ASGE::Point2D position)
 {
   loadSprite(renderer, file_path);
+  sprite->xPos(position.x);
+  sprite->yPos(position.y);
 }
 bool SpriteObject::loadSprite(
   ASGE::Renderer* renderer, const std::string& file_path)
