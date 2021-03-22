@@ -2,6 +2,7 @@
 #include <Engine/Camera2D.hpp>
 #include <Engine/OGLGame.h>
 #include <game/GameObjects/Scenes/Scene.h>
+#include <Engine/Gamepad.h>
 #include <string>
 
 class ASGEGame final: public ASGE::OGLGame

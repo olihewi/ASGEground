@@ -114,3 +114,10 @@ ASGE::Point2D AnimatedSprite::centre()
   return ASGE::Point2D(sprites.front()->xPos() + sprites.front()->width()/2,
                        sprites.front()->yPos() + sprites.front()->height()/2);
 }
+bool AnimatedSprite::isInside(ASGE::Point2D position)
+{
+  return position.x >= sprites.front()->xPos() &&
+         position.x <= sprites.front()->xPos() + sprites.front()->width() &&
+         position.y >= sprites.front()->yPos() &&
+         position.y <= sprites.front()->yPos() + sprites.front()->height();
+}

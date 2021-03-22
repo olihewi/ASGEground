@@ -9,8 +9,8 @@ ASGEGame::ASGEGame(const ASGE::GameSettings& settings) : OGLGame(settings)
   toggleFPS();
 
   // create a camera to frame the window
-  camera = ASGE::Camera2D{ static_cast<float>(ASGE::SETTINGS.window_width)/2,
-                           static_cast<float>(ASGE::SETTINGS.window_height)/2 };
+  camera = ASGE::Camera2D{ static_cast<float>(ASGE::SETTINGS.window_width),
+                           static_cast<float>(ASGE::SETTINGS.window_height) };
 
   // point the camera towards the middle of the window i.e. 0,0
   camera.lookAt(

@@ -10,11 +10,13 @@
 class TileMap : public GameObject
 {
  public:
-  explicit TileMap(ASGE::Renderer* renderer);
+  explicit TileMap(ASGE::Renderer* _renderer);
   void update(float dt) override;
-  void render(ASGE::Renderer* renderer) override;
+  void render(ASGE::Renderer* _renderer) override;
+  void setTile(size_t index, std::array<float,4> rect);
  private:
   std::array<Tile,2500> tiles;
+  ASGE::Renderer* renderer;
 };
 
 #endif // ASGEGROUND_TILEMAP_H

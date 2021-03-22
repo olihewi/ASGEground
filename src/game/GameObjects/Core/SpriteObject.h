@@ -37,6 +37,13 @@ class SpriteObject : public GameObject
 
   [[nodiscard]] virtual ASGE::Point2D centre();
 
+  [[nodiscard]] virtual bool isInside(ASGE::Point2D position);
+
+  [[nodiscard]] virtual short zOrder();
+  virtual void zOrder(short z_order);
+
+  virtual void srcRect(float x, float y, float w, float h);
+
  private:
   std::unique_ptr<ASGE::Sprite> sprite;
   bool visible = true;

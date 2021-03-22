@@ -37,6 +37,8 @@ class AnimatedSprite : public SpriteObject
 
   [[nodiscard]] ASGE::Point2D centre() override;
 
+  [[nodiscard]] bool isInside(ASGE::Point2D position) override;
+
  private:
   std::vector<std::unique_ptr<ASGE::Sprite>> sprites;
   bool visible = true;

@@ -60,7 +60,8 @@ ASGE::Point2D SpriteObject::dimensions()
 }
 void SpriteObject::dimensions(ASGE::Point2D _dimensions)
 {
-  sprite->dimensions(_dimensions.x,_dimensions.y);
+  sprite->width(_dimensions.x);
+  sprite->height(_dimensions.y);
 }
 
 float SpriteObject::rotation()
@@ -98,4 +99,28 @@ ASGE::Point2D SpriteObject::centre()
 {
   return ASGE::Point2D(sprite->xPos() + sprite->width() / 2,
                        sprite->yPos() + sprite->height() / 2);
+}
+bool SpriteObject::isInside(ASGE::Point2D position)
+{
+  return position.x >= sprite->xPos() &&
+         position.x <= sprite->xPos() + sprite->width() &&
+         position.y >= sprite->yPos() &&
+         position.y <= sprite->yPos() + sprite->height();
+}
+short SpriteObject::zOrder()
+{
+  return sprite->getGlobalZOrder();
+}
+void SpriteObject::zOrder(short z_order)
+{
+  sprite->setGlobalZOrder(z_order);
+}
+
+void SpriteObject::srcRect(float x, float y, float w, float h)
+{
+  auto* src_rect = sprite->srcRect();
+  src_rect[0] = x;
+  src_rect[1] = y;
+  src_rect[2] = w;
+  src_rect[3] = h;
 }
