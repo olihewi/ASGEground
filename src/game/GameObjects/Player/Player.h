@@ -6,8 +6,8 @@
 #define ASGEGROUND_PLAYER_H
 
 #include <Engine/Camera2D.hpp>
-#include <game/GameObjects/Core/AnimatedSprite.h>
 #include <Engine/Gamepad.h>
+#include <game/GameObjects/Sprites/AnimatedSprite.h>
 
 class Player : public GameObject
 {

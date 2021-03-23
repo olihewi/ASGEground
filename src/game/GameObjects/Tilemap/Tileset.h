@@ -5,7 +5,7 @@
 #ifndef ASGEGROUND_TILESET_H
 #define ASGEGROUND_TILESET_H
 
-#include <game/GameObjects/Core/AnimatedSprite.h>
+#include <game/GameObjects/Sprites/ScalableSprite.h>
 class Tileset : public GameObject
 {
  public:
@@ -15,9 +15,10 @@ class Tileset : public GameObject
   [[nodiscard]] std::array<float,4> getCurrentRect();
  private:
   SpriteObject sprite_sheet;
-  SpriteObject cursor;
+  ScalableSprite cursor;
   int sprite_size;
-  int current_selection = 0;
+  int selection_start = 0;
+  int selection_end = 0;
 };
 
 #endif // ASGEGROUND_TILESET_H

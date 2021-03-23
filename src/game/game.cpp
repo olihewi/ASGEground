@@ -1,6 +1,5 @@
 #include "game.h"
 #include <Engine/Sprite.h>
-#include <game/GameObjects/Core/AnimatedSprite.h>
 #include <game/GameObjects/Scenes/LevelTest.h>
 
 ASGEGame::ASGEGame(const ASGE::GameSettings& settings) : OGLGame(settings)

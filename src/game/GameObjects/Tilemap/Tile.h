@@ -5,7 +5,7 @@
 #ifndef ASGEGROUND_TILE_H
 #define ASGEGROUND_TILE_H
 
-#include <game/GameObjects/Core/SpriteObject.h>
+#include <game/GameObjects/Sprites/SpriteObject.h>
 class Tile : public GameObject
 {
  public:

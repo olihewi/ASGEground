@@ -3,7 +3,6 @@
 //
 
 #include "Tile.h"
-#include <game/GameObjects/Core/AnimatedSprite.h>
 
 Tile::Tile(
   ASGE::Renderer* renderer, const std::string& tileset_path, std::array<float,4> rect, ASGE::Point2D position,
